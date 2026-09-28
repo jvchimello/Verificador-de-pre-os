@@ -38,7 +38,7 @@ def raspar_produtos_em_promocao():
                 pagina.goto(url_pagina)
                 pagina.wait_for_selector(seletor_card, timeout=8000)
             except Exception:
-                print(f"⚠️ Página {num_pagina} demorou a responder ou não contém produtos. Pulando...")
+                print(f" Página {num_pagina} demorou a responder ou não contém produtos. Pulando...")
                 continue
                 
             cards = pagina.locator(seletor_card).all()
@@ -98,9 +98,9 @@ def salvar_em_planilha(lista_produtos, pasta_alvo):
     df.to_excel(caminho_excel, index=False, engine="openpyxl")
     df.to_csv(caminho_csv, index=False, sep=";", encoding="utf-8-sig")
 
-    print(f"\n✅ Total de ofertas extraídas das 57 páginas: {len(lista_produtos)}")
-    print(f"✅ Excel salvo em: {caminho_excel}")
-    print(f"✅ CSV salvo em: {caminho_csv}")
+    print(f"\n Total de ofertas extraídas das 57 páginas: {len(lista_produtos)}")
+    print(f" Excel salvo em: {caminho_excel}")
+    print(f"CSV salvo em: {caminho_csv}")
 
 if __name__ == "__main__":
     dados = raspar_produtos_em_promocao()
